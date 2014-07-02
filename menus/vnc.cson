@@ -1,0 +1,13 @@
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'vnc'
+      'submenu': [
+        { 'label': 'Toggle', 'command': 'vnc:open' }
+        # TODO: open last
+        # open listen server
+      ]
+    ]
+  }
+]

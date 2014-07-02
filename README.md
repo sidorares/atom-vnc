@@ -1,4 +1,3 @@
-atom-vnc
-========
+# VNC viewer for Atom editor
 
-VNC client for atom editor
+WIP
