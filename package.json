@@ -9,7 +9,7 @@
   "engines": {
     "atom": ">0.50.0"
   },
-  "keywords": ["vnc", "rdp", "screen sharing", "remote"]
+  "keywords": ["vnc", "rdp", "screen sharing", "remote"],
   "dependencies": {
     "rfb2": "0.0.9"
   }
