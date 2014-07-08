@@ -43,6 +43,7 @@ class VncView extends ScrollView
     @connection.on 'connect', =>
       @connected = true
       @title = @connection.title
+      @trigger 'title-changed'
       console.log(@connection)
       @offScreenCanvas
         .attr("width" , @connection.width)
@@ -126,7 +127,7 @@ class VncView extends ScrollView
     if rect.encoding is rfb.encodings.raw
       canvasRectangle = @ctx.createImageData(rect.width, rect.height)
       for i in [0..rect.buffer.length - 4] by 4
-        # TODO: compile transformer function at run time ( noop if serev pixel order is rgb )
+        # TODO: compile transformer function at run time ( noop if server pixel order is rgb )
         word = rect.buffer.readUInt32LE(i);
         r = (word & ( @connection.redMax   << @connection.redShift))   >> @connection.redShift
         g = (word & ( @connection.greenMax << @connection.greenShift)) >> @connection.greenShift
