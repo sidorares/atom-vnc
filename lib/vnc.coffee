@@ -1,3 +1,5 @@
+{CompositeDisposable} = require 'atom'
+
 url     = require 'url'
 
 VncView = null
@@ -15,10 +17,15 @@ createVncView = (opts) ->
 
 module.exports =
   activate: (state) ->
-    atom.workspaceView.command 'vnc:open', vncOpen
+    @subscriptions = new CompositeDisposable
 
-    atom.workspace.registerOpener (uri) ->
+    @subscriptions.add atom.commands.add 'atom-workspace', 'vnc:open': -> vncOpen()
+
+    atom.workspace.addOpener (uri) ->
       u = url.parse(uri)
       if u.protocol == vncProtocol
         createVncView
           uri: uri
+
+  deactivate: ->
+    @subscriptions.dispose()

@@ -1,6 +1,5 @@
+{ScrollView} = require 'atom-space-pen-views'
 url = require 'url'
-
-{ScrollView} = require 'atom'
 
 VncPassword = null
 rfb         = null
