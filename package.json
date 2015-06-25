@@ -2,7 +2,7 @@
   "name": "vnc",
   "author": "Andrey Sidorov <sidorares@yandex.com>",
   "main": "./lib/vnc",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "VNC client for atom",
   "repository": "https://github.com/sidorares/atom-vnc",
   "license": "MIT",
