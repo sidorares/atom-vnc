@@ -43,7 +43,6 @@ class VncView extends ScrollView
       @connected = true
       @title = @connection.title
       @trigger 'title-changed'
-      console.log(@connection)
       @offScreenCanvas
         .attr("width" , @connection.width)
         .attr("height", @connection.height)
@@ -59,6 +58,7 @@ class VncView extends ScrollView
         @connection.end()
 
       securityType = @connection.securityType
+      console.log securityType
       if securityType is rfb.security.VNC
         VncPassword ?= require './vnc-password'
         dialog = new VncPassword
