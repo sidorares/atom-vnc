@@ -1,3 +1,4 @@
+{CompositeDisposable} = require 'atom'
 {TextEditorView} = require 'atom-space-pen-views'
 {View} = require 'space-pen'
 
@@ -17,10 +18,12 @@ class VncConnectView extends View
           @button class: 'inline-block btn', outlet: 'okButton', 'OK'
 
   initialize: ->
-    @on 'core:confirm', => @confirm()
+    @subscriptions = new CompositeDisposable()
+
+    @subscriptions.add atom.commands.add 'atom-workspace', 'core:confirm': => @confirm()
     @okButton.on 'click', => @confirm()
 
-    @on 'core:cancel', => @detach()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'core:cancel': => @detach()
     @cancelButton.on 'click', => @detach()
 
     @host.setText('localhost')
@@ -37,4 +40,5 @@ class VncConnectView extends View
     @detach()
 
   destroy: ->
+    @subscriptions.dispose()
     @detach()

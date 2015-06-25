@@ -25,10 +25,10 @@ class VncPassword extends View
     @subscriptions = new CompositeDisposable
 
     @callback = params.callback
-    @on 'core:confirm', => @confirm()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'core:confirm': => @confirm()
     @okButton.on 'click', => @confirm()
 
-    @on 'core:cancel', => @detach()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'core:cancel': => @detach()
     @cancelButton.on 'click', => @detach()
     atom.views.getView(atom.workspace).appendChild(@element)
 
@@ -48,5 +48,6 @@ class VncPassword extends View
     @detach()
 
   destroy: ->
+    @subscriptions.dispose()
     @callback('cancel')
     @detach()
