@@ -16,7 +16,7 @@
     "remote"
   ],
   "dependencies": {
-    "rfb2": "~0.0.10",
+    "rfb2": "~0.2.0",
     "atom-space-pen-views": "^2.0.3",
     "space-pen": "^5.1.1"
   }
