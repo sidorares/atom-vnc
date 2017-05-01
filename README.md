@@ -1,5 +1,7 @@
 # VNC viewer for [Atom](http://atom.io) editor
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/sidorares/atom-vnc.svg)](https://greenkeeper.io/)
+
 ![vnc](https://cloud.githubusercontent.com/assets/173025/3453038/67293c6a-01be-11e4-8109-a71fcde03a01.gif)
 
 Currently only `None` and `VNC` security types are supported.
